@@ -1,4 +1,5 @@
 import { setupWorker, rest } from 'msw'
+import {setupServer} from 'msw/node'
 
 export const handlers = [
   rest.post('/login', (req, res, ctx) => {
@@ -16,3 +17,4 @@ export const handlers = [
 ]
 
 export const worker = setupWorker(...handlers)
+export const server = setupServer(...handlers)
